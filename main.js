@@ -19,18 +19,19 @@ let myLibrary = [];
 
 
 
-
-function Book(name, author, pages, read) {
+class Book {
+constructor(name, author, pages, read) {
     this.name = name;
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.info = function () {
+}
+    info =  () => {
 
         return (`BOOK: ${this.name} AUTHOR: ${this.author} PAGES: ${this.pages} READ: ${this.read}`);
     }
-}
 
+}
 
 function addBookToLibrary() {
     let books = new Book(bookName.value, authorName.value, pagesName.value, readName.value)
