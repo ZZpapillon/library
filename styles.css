@@ -6,6 +6,9 @@
       align-items: flex-start;
       gap: 40px;
   }
+  .error {
+      border: 1px solid red;
+  }
 
   h1 {
       font-size: 70px;

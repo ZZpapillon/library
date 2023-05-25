@@ -105,12 +105,55 @@ function LibraryPost() {
 
 
 }
-button.addEventListener('click', (event) => {
-    event.preventDefault();
-    addBookToLibrary()
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
 
+    if (validateForm()) {
+      // Form is valid, submit it
+    //   submitForm();
+       addBookToLibrary()
+      
+       bookName.value = ''
+     authorName.value = ''
+       pagesName.value = ''
+      
+    
+    }
+  });
 
-})
+  function validateForm() {
+    let isValid = true;
+
+    if (bookName.value.trim() === '') {
+      isValid = false;
+      bookName.classList.add('error');
+    } else {
+      bookName.classList.remove('error');
+    }
+
+    if (authorName.value.trim() === '') {
+      isValid = false;
+      authorName.classList.add('error');
+    } else {
+      authorName.classList.remove('error');
+    }
+
+    if (pagesName.value === '' || pagesName.value <= 0) {
+      isValid = false;
+      pagesName.classList.add('error');
+    } else {
+      pagesName.classList.remove('error');
+    }
+
+    if (readName.value === '') {
+      isValid = false;
+      readName.classList.add('error');
+    } else {
+      readName.classList.remove('error');
+    }
+
+    return isValid;
+  }
 
 showForm.addEventListener('click', () => {
     form.style.display = 'block'
